@@ -11,7 +11,10 @@ Decap CMS needs permission to commit to your GitHub repository. Since GitHub doe
 2. Go to User Settings → OAuth → GitHub → New OAuth App.
 3. Set the Authorization callback URL to: `https://api.netlify.com/auth/done`
 4. Netlify will provide a Client ID and Client Secret.
-5. `public/admin/config.yml` is already configured to use Netlify as the proxy (`base_url: https://api.netlify.com`).
+5. Add the generated credentials inside Netlify Site settings under "Access control" > "OAuth" > "Authentication Providers".
+6. `public/admin/config.yml` is already configured to use Netlify as the proxy (`base_url: https://api.netlify.com`).
+
+*Note: If the Netlify Identity widget is spinning endlessly, ensure that your Netlify site URL matches your GitHub Pages URL exactly, or explicitly add your GitHub Pages URL in your Netlify site settings > "Site settings" > "Identity" > "Services" > "Git Gateway".*
 
 ## How to Write a Blog Post
 1. Log in to the `/admin/` panel using your GitHub account.
