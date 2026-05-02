@@ -4,6 +4,9 @@ import '../styles/global.css';
 import '../styles/components.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { getBaseUrl } from '../utils';
+
+const baseUrl = getBaseUrl();
 
 interface Props {
   title: string;
@@ -20,7 +23,7 @@ const { title, description = "CodingCup Labs - Building production-ready softwar
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href={import.meta.env.BASE_URL + "/favicon.svg"} />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}/favicon.svg`} />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
@@ -29,12 +32,12 @@ const { title, description = "CodingCup Labs - Building production-ready softwar
       <slot />
     </main>
     <Footer />
-    <script>
+    <script is:inline define:vars={{ baseUrl }}>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
             window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
+              document.location.href = baseUrl + "/admin/";
             });
           }
         });
