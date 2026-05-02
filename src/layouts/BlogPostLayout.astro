@@ -1,6 +1,9 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import TagPill from '../components/TagPill.astro';
+import { getBaseUrl } from '../utils';
+
+const baseUrl = getBaseUrl();
 
 const { frontmatter } = Astro.props;
 const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
@@ -13,7 +16,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 <BaseLayout title={`${frontmatter.title} | CodingCup Labs`} description={frontmatter.description}>
   <article class="blog-post section container">
     <div class="post-header">
-      <a href={import.meta.env.BASE_URL + "/blog"} class="back-link">← Back to Blog</a>
+      <a href={`${baseUrl}/blog`} class="back-link">← Back to Blog</a>
       <h1>{frontmatter.title}</h1>
       <div class="meta">
         <span class="date">{formattedDate}</span>
@@ -27,7 +30,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
         </div>
       )}
       {frontmatter.cover && (
-        <img src={import.meta.env.BASE_URL + frontmatter.cover} alt={`Cover for ${frontmatter.title}`} class="cover-image" />
+        <img src={`${baseUrl}${frontmatter.cover}`} alt={`Cover for ${frontmatter.title}`} class="cover-image" />
       )}
     </div>
     <div class="post-content">

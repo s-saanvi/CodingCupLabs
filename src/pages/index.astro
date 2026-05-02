@@ -5,6 +5,9 @@ import ServiceCard from '../components/ServiceCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
+import { getBaseUrl } from '../utils';
+
+const baseUrl = getBaseUrl();
 
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
@@ -32,9 +35,9 @@ const projects = [
     headline="BUILDING SOFTWARE WITH BRUTAL EFFICIENCY."
     subheadline="We design and develop high-performance web and mobile applications for technical founders."
     primaryCtaText="Start a Project"
-    primaryCtaLink={import.meta.env.BASE_URL + "/contact"}
+    primaryCtaLink={`${baseUrl}/contact`}
     secondaryCtaText="View Our Work"
-    secondaryCtaLink={import.meta.env.BASE_URL + "/projects"}
+    secondaryCtaLink={`${baseUrl}/projects`}
   />
 
   <section class="marquee">
@@ -61,7 +64,7 @@ const projects = [
         <p>A collective of engineers and designers building tools for the next generation of the web. We believe in raw performance, strict logic, and uncompromising design.</p>
       </div>
       <div class="about-action">
-        <a href={import.meta.env.BASE_URL + "/about"} class="btn btn--outline">Learn More About Us →</a>
+        <a href={`${baseUrl}/about`} class="btn btn--outline">Learn More About Us →</a>
       </div>
     </div>
   </section>
@@ -83,7 +86,7 @@ const projects = [
       ))}
     </div>
     <div class="view-all-container">
-      <a href={import.meta.env.BASE_URL + "/projects"} class="btn btn--outline">View All Projects</a>
+      <a href={`${baseUrl}/projects`} class="btn btn--outline">View All Projects</a>
     </div>
   </section>
 
@@ -107,7 +110,7 @@ const projects = [
   <section class="cta-banner section">
     <div class="container cta-container">
       <h2>READY TO BUILD SOMETHING GREAT?</h2>
-      <a href={import.meta.env.BASE_URL + "/contact"} class="btn btn--primary btn-large">Get in Touch</a>
+      <a href={`${baseUrl}/contact`} class="btn btn--primary btn-large">Get in Touch</a>
     </div>
   </section>
 </BaseLayout>

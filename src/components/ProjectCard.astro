@@ -1,4 +1,7 @@
 ---
+import { getBaseUrl } from '../utils';
+const baseUrl = getBaseUrl();
+
 interface Props {
   title: string;
   description: string;
@@ -11,7 +14,7 @@ const { title, description, tags, link, image } = Astro.props;
 <article class="card project-card">
   {image ? (
     <div class="project-img-container">
-      <img src={import.meta.env.BASE_URL + image} alt={`Screenshot of ${title}`} class="project-img" />
+      <img src={`${baseUrl}${image}`} alt={`Screenshot of ${title}`} class="project-img" />
     </div>
   ) : (
     <div class="project-img-placeholder">

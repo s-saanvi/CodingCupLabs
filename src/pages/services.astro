@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import { getBaseUrl } from '../utils';
+
+const baseUrl = getBaseUrl();
 
 const services = [
   { number: '01', title: 'Web Development', description: 'High-performance static and dynamic web applications. We build fast, accessible, and scalable platforms.', icon: '🌐' },
@@ -62,7 +65,7 @@ const processSteps = [
     <div class="container cta-container">
       <h2>READY TO START?</h2>
       <p>Contact us to discuss your project requirements.</p>
-      <a href={import.meta.env.BASE_URL + "/contact"} class="btn btn--primary btn-large mt-md">Contact Us</a>
+      <a href={`${baseUrl}/contact`} class="btn btn--primary btn-large mt-md">Contact Us</a>
     </div>
   </section>
 </BaseLayout>

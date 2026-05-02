@@ -80,8 +80,8 @@ The entire visual language of this site is derived from the **CodingCup Labs Neo
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/s-saanvi/CCLABS.git
-   cd CCLABS
+   git clone https://github.com/s-saanvi/CodingCupLabs.git
+   cd CodingCupLabs
    ```
 2. Install dependencies:
    ```bash
@@ -183,9 +183,9 @@ No `.env` file is required for local development or deployment since this is a f
 
 ## Troubleshooting
 
-- **404 Not Found on GitHub Pages:** Ensure the `base` property in `astro.config.mjs` exactly matches your repository name (e.g., `/CCLABS`).
+- **404 Not Found on GitHub Pages:** Ensure the `base` property in `astro.config.mjs` exactly matches your repository name (e.g., `/CodingCupLabs`).
 - **Styles aren't applying:** Verify that `tokens.css`, `global.css`, and `components.css` are correctly imported in `src/layouts/BaseLayout.astro`.
-- **Admin panel shows a blank page:** Ensure `public/admin/config.yml` exists and has the correct `repo` configured (`s-saanvi/CCLABS`).
+- **Admin panel shows a blank page:** Ensure `public/admin/config.yml` exists and has the correct `repo` configured (`s-saanvi/CodingCupLabs`).
 - **Images are broken:** When linking to assets in the `/public` folder from within `.astro` components, you MUST prefix the path with `import.meta.env.BASE_URL` (e.g., `src={import.meta.env.BASE_URL + "/image.png"}`).
 - **Build fails in CI:** Check the Node version in GitHub Actions (must be 20+). Check the `npm ci` output for dependency conflicts.
 - **Blog post not showing up:** Ensure `draft` is set to `false` in the frontmatter.

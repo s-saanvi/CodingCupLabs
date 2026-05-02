@@ -1,4 +1,8 @@
 ---
+import { getBaseUrl } from '../utils';
+
+const baseUrl = getBaseUrl();
+
 interface Props {
   title: string;
   description: string;
@@ -12,21 +16,21 @@ const { title, description, pubDate, author, tags, slug, cover } = Astro.props;
 ---
 <article class="card blog-card">
   {cover && (
-    <img src={import.meta.env.BASE_URL + cover} alt={`Cover for ${title}`} class="card-img" />
+    <img src={`${baseUrl}${cover}`} alt={`Cover for ${title}`} class="card-img" />
   )}
   <div class="card-content">
     <div class="card-meta">
       <span class="date">{pubDate}</span>
       <span class="author">by {author}</span>
     </div>
-    <h3 class="card-title"><a href={import.meta.env.BASE_URL + "/blog/" + slug}>{title}</a></h3>
+    <h3 class="card-title"><a href={`${baseUrl}/blog/${slug}`}>{title}</a></h3>
     <p class="card-desc">{description}</p>
     <div class="card-tags">
       {tags.map(tag => (
         <span class="tag">{tag}</span>
       ))}
     </div>
-    <a href={import.meta.env.BASE_URL + "/blog/" + slug} class="read-more">Read more →</a>
+    <a href={`${baseUrl}/blog/${slug}`} class="read-more">Read more →</a>
   </div>
 </article>
 
