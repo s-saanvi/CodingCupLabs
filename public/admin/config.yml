@@ -5,10 +5,14 @@ backend:
   base_url: https://api.netlify.com
   auth_endpoint: auth
 
+site_url: https://s-saanvi.github.io/CodingCupLabs
+display_url: https://s-saanvi.github.io/CodingCupLabs
+logo_url: https://s-saanvi.github.io/CodingCupLabs/favicon.svg
+
 publish_mode: editorial_workflow
 
 media_folder: "public/images/blog"
-public_folder: "/images/blog"
+public_folder: "/CodingCupLabs/images/blog"
 
 collections:
   - name: "blog"
