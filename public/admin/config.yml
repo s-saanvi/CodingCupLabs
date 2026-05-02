@@ -12,7 +12,7 @@ logo_url: https://s-saanvi.github.io/CodingCupLabs/favicon.svg
 publish_mode: editorial_workflow
 
 media_folder: "public/images/blog"
-public_folder: "/CodingCupLabs/images/blog"
+public_folder: "/images/blog"
 
 collections:
   - name: "blog"

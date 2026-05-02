@@ -2,6 +2,8 @@
 // src/pages/admin/index.astro
 // This page serves the Decap CMS admin interface.
 // Access at: https://<site>/admin/
+import { getBaseUrl } from '../../utils';
+const baseUrl = getBaseUrl();
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <title>CodingCup Labs — Admin</title>
+    <!-- Specify config url explicitly so routing handles correctly -->
+    <link href={`${baseUrl}/admin/config.yml`} type="text/yaml" rel="cms-config-url" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script is:inline define:vars={{ baseUrl }}>
+      CMS.registerPreviewStyle(baseUrl + "/global.css");
+    </script>
   </body>
 </html>
